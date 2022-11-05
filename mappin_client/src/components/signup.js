@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-//import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -117,6 +117,12 @@ export default function Form() {
             Register
           </button>
         </form>
+        <p>
+          Have an account?{" "}
+          <Link to='..' relative='signin'>
+            Sign in!
+          </Link>
+        </p>
       </div>
     </div>
   );
