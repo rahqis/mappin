@@ -1,0 +1,56 @@
+.App {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color:white;
+    }
+    
+    .label{
+    display: block;
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    color: black;
+    padding: 10px;
+    }
+    
+    .input{
+    font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    padding: 5px;
+    margin: 2px;
+    
+    }
+    .btn{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: block;
+    padding: 5px;
+    margin: 10px auto;
+    }
+    
+    .messages{
+    display: flex;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    justify-content: center;
+    }
+    
+    .error{
+    display: block;
+    background-color: red;
+    color: white;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    }
+    
+    .success{
+    display: block;
+    background-color: lightgreen;
+    color: black;
+    width: auto;
+    height: 100px;
+    padding: 5px;
+    }
+    
