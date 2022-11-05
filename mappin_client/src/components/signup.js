@@ -50,7 +50,7 @@ const successMessage = () => {
 		style={{
 		display: submitted ? '' : 'none',
 		}}>
-		<h1>User {name} successfully registered!!</h1>
+		<h1>Thank you for joining {name} </h1>
 	</div>
 	);
 };

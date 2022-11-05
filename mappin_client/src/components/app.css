@@ -1,17 +1,20 @@
 .App {
     text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color:white;
     }
     
     .label{
     display: block;
-    font-size: larger;
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     color: black;
-    padding: 5px;
+    padding: 10px;
     }
     
     .input{
     font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     padding: 5px;
     margin: 2px;
     
@@ -21,6 +24,7 @@
     background-color: black;
     border-radius: 5px;
     font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     display: block;
     padding: 5px;
     margin: 10px auto;
@@ -28,6 +32,7 @@
     
     .messages{
     display: flex;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     justify-content: center;
     }
     
@@ -42,10 +47,10 @@
     
     .success{
     display: block;
-    background-color: lightblue;
+    background-color: lightgreen;
     color: black;
-    width: fit-content;
-    height: 50px;
+    width: auto;
+    height: 100px;
     padding: 5px;
     }
     
