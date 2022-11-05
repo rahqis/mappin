@@ -1,27 +1,54 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
+import { useState, useEffect } from "react";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import "./styles.css";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+export default function Maps() {
+  const [lat, setLat] = useState();
+  const [lng, setlng] = useState();
+  const [Data, setData] = useState();
 
-export default function SimpleMap() {
-  const defaultProps = {
-    center: {
-      lat: 10.99835602,
-      lng: 77.01502627
-    },
-    zoom: 11
-  };
+  useEffect(() => {
+    fetch(
+      "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyB9fkLxejhuftgB6DeDfqkdiKkwBwQ-OXA",
+      {
+        method: "POST"
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.location);
+        setLat(data.location.lat);
+        setlng(data.location.lng);
+        setData(data);
+      });
+  }, []);
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyB9fkLxejhuftgB6DeDfqkdiKkwBwQ-OXA"
+  });
 
+  if (!isLoaded)
+    return (
+      <div>
+        {console.log("LOADING")}
+        Loading...
+      </div>
+    );
   return (
-    // Important! Always set the container height explicitly
-    <div style={{ height: "100vh", width: "100%" }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      >
-        <AnyReactComponent lat={59.955413} lng={30.337844} text='My Marker' />
-      </GoogleMapReact>
-    </div>
+    <GoogleMap
+      zoom={15}
+      center={{ lat: lat, lng: lng }}
+      mapContainerClassName='map-container'
+    ></GoogleMap>
+  );
+}
+
+function Map() {
+  return (
+    <GoogleMap
+      zoom={15}
+      center={{ lat: 0, lng: 0 }}
+      mapContainerClassName='map-container'
+    ></GoogleMap>
   );
 }
