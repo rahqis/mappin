@@ -4,14 +4,9 @@ import "./index.css";
 import App from "./App";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-<<<<<<< HEAD
-import Register from "./components/Register";
-import Login from "./components/Login";
-=======
 import Form from "./components/signup";
 import Login from "./components/login";
 import Maps from "./components/maps";
->>>>>>> created backend api, maps to get events
 const router = createBrowserRouter([
   {
     path: "/",
