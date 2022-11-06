@@ -1,92 +1,25 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import "./styles.css";
 
-function Login() {
-  // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+export default function Login(props) {
+    const [username, setUsername] = useState('');
+    const [pass, setPass] = useState('');
 
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(username);
     }
-  ];
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
-
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
-
-    var { uname, pass } = document.forms[0];
-
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
-  };
-
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className='error'>{errorMessages.message}</div>
-    );
-
-  // JSX code for login form
-  const renderForm = (
-    <div className='form'>
-      <form onSubmit={handleSubmit}>
-        <div className='input-container'>
-          <label>Username </label>
-          <input type='text' name='uname' required />
-          {renderErrorMessage("uname")}
+    return (
+        <div className="auth-form-container">
+            <h2>Login</h2>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label htmlFor="username">username</label>
+                <input value={username} onChange={(e) => setUsername(e.target.value)}type="username" placeholder="username" id="uesrname" name="username" />
+                <label htmlFor="password">password</label>
+                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                <button type="submit">Log In</button>
+            </form>
+            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
         </div>
-        <div className='input-container'>
-          <label>Password </label>
-          <input type='password' name='pass' required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className='button-container'>
-          <input type='submit' />
-        </div>
-      </form>
-      <p>
-        Don't have an account?
-        <Link to='signup'>Sign up!</Link>
-      </p>
-    </div>
-  );
-
-  return (
-    <div className='app'>
-      <div className='login-form'>
-        <div className='title'>Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-      </div>
-    </div>
-  );
+    )
 }
-
-export default Login;
