@@ -12,7 +12,7 @@ export default function Login(props) {
     return (
         <div className="auth-form-container">
           <h1>Mappin</h1>
-          <h2>Register</h2>
+          <h2>Log In</h2>
         <form className="register-form" onSubmit={handleSubmit}>
           <label htmlFor="Username">username</label>
           <input value={username} onChange={(e) => setUsername(e.target.value)}  username= "username" placeholder = "Username"/>
