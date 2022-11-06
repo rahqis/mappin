@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Form from "./components/signup";
 import Login from "./components/login";
+import Maps from "./components/maps";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <Login />
+  },
+  {
+    path: "/main",
+    element: <Maps />
   }
 ]);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -17,6 +17,7 @@ export default function Form() {
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   // Handling the name change
   const handleName = (e) => {
@@ -25,8 +26,9 @@ export default function Form() {
   };
 
   const register = () => {
-    if (!name) alert("Please enter name");
+    if (!name || !email || !password) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
+    navigate("/main");
   };
 
   //   useEffect(() => {
