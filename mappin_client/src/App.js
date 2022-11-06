@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+import React, { useState } from "react";
+import logo from './logo.svg';
+import './App.css';
+import  Register from "./components/Register";
+import MakeEvent  from "./components/makeEvent";
+import Maps from './components/maps';
+import Login from './components/Login';
+
+import Navbar from './components/Navbar';
+
+function App() {
+  const [currentForm, setCurrentForm] = useState('login');
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
+
+  return (
+    <div className="App">
+      {
+        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+      }
+=======
 import "./App.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +47,13 @@ function App() {
   return (
     <div className='App'>
       <Maps />
+<<<<<<< HEAD
+=======
+>>>>>>> created backend api, maps to get events
+>>>>>>> main
     </div>
   );
+
 }
 
 export default App;
